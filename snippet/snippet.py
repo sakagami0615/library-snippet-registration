@@ -58,10 +58,8 @@ def main() -> None:
 
     match args.mode:
         case Mode.DELETE:
-            # delete_snippet(args)
-            pass
+            delete_snippet(args)
         case Mode.RESIST:
-            # resist_snippet(args)
-            pass
+            resist_snippet(args)
         case Mode.PREPARE:
             prepare_config_file(args)

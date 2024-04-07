@@ -1,0 +1,9 @@
+{
+    "key_a": {
+      "prefix": "test:snippet",
+      "description": "snippet",
+      "body": [
+        "sample_1"
+      ]
+    }
+}

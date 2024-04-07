@@ -1,0 +1,1 @@
+libcode.py L1 のライブラリコードにはsnippet_prefixが無いため、スニペットの登録からは除外します (library syntax)

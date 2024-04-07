@@ -1,0 +1,6 @@
+lib_begin: "lib:begin"
+lib_end: "lib:end"
+
+snippet_key: "[snippet_key]"
+snippet_prefix: "[snippet_prefix]"
+description: "[description]"

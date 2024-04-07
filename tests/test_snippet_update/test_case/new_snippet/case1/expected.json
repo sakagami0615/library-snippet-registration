@@ -1,0 +1,10 @@
+{
+    "test": {
+        "prefix": "test",
+        "description": "test",
+        "body": [
+            "sample1 = 1",
+            "sample2 = 1"
+        ]
+    }
+}

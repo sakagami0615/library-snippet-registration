@@ -1,0 +1,2 @@
+snippet_diff (new): key_b
+snippet_diff (delete): key_a

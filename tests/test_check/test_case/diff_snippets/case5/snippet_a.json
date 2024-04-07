@@ -1,0 +1,18 @@
+{
+    "key_a": {
+      "prefix": "test:snippet_a",
+      "description": "snippet_a",
+      "body": [
+        "sample_1",
+        "sample_2"
+      ]
+    },
+    "key_b": {
+      "prefix": "test:snippet_b",
+      "description": "snippet_b",
+      "body": [
+        "sample_1",
+        "sample_2"
+      ]
+    }
+}

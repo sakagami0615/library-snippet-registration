@@ -59,7 +59,7 @@ class FileHelper:
             return defaultdict(str)
         with open(json_path, encoding=CODE_ENCODING) as f:
             json_dict = json.load(f)
-        return defaultdict(str, json_dict[0])
+        return defaultdict(str, json_dict)
 
     @staticmethod
     def write_json(json_path: Path, json_dict: dict) -> None:

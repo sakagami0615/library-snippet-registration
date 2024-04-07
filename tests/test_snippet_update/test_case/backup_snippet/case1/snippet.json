@@ -1,9 +1,9 @@
-[
-  {
+{
+  "code_info_1": {
     "script_path": "libcode.py",
     "snippet_key": "test",
     "snippet_prefix": "test",
     "description": "test",
     "code": ["sample1 = 1", "sample2 = 1"]
   }
-]
+}

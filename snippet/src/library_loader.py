@@ -94,7 +94,7 @@ class LibraryLoader:
         snippet_key, snippet_prefix, description = "", "", ""
         code = []
         for line in text_block.lines:
-            if snippet_key and snippet_prefix and description:
+            if snippet_key and snippet_prefix:      # NOTE: descriptionはMUSTではないため、条件に含めない
                 code.append(line)
             else:
                 key = self._lib_mark["snippet_key"]

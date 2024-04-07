@@ -63,3 +63,6 @@ indent-style = "space"
 
 [tool.ruff.lint.mccabe]
 max-complexity = 10
+
+[tool.pytest.ini_options]
+addopts = "-p no:cacheprovider"

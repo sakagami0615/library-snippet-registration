@@ -25,8 +25,8 @@ if __name__ == "__main__":
 
 以下のように実行することで2つのパラメータファイルが生成される。自身の環境に合わせて中身を記載する。
 
-- library_mark_template.yaml
 - snippet_config_template.yaml
+- library_mark_template.yaml
 
 ```bash
 python snippet_tool.py prepare
@@ -35,5 +35,5 @@ python snippet_tool.py prepare
 ## run resist snippet
 
 ```bash
-python snippet_tool.py resist -c ./library_mark_template.yaml
+python snippet_tool.py resist -c ./snippet_config_template.yaml
 ```

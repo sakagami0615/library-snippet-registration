@@ -1,5 +1,5 @@
 snippet_path: "<Your vscode or cursor path here>/User/snippets/python.json"
-library_path: "<Your library path here"
+library_path: "<Your library path here>"
 mark_path: "<library_mark_template.yaml path here>"
 
 # is_overwrite >= 1 : スニペット更新時は上書き、is_overwrite <= 0 : スニペット更新時は新規作成

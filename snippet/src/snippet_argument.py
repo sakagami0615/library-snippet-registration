@@ -59,10 +59,10 @@ class Argument:
                 logger.warning("extensions が設定されていません")
                 invalid = True
             if not self.library_path.exists():
-                logger.warning(f"library_path が存在しません (設定値: {self.library_path})")
+                logger.warning("library_path が存在しません")
                 invalid = True
             if not self.mark_path.exists():
-                logger.warning(f"mark_path が存在しません (設定値: {self.mark_path})")
+                logger.warning("mark_path が存在しません")
                 invalid = True
             return invalid
 

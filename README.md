@@ -2,7 +2,7 @@
 
 ## requirements
 
-- python 3.12.X
+- python 3.11.X
 
 ## installation
 

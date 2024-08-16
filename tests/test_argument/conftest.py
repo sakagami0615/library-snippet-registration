@@ -26,8 +26,9 @@ def dummy_mark_filepath():
 
 @pytest.fixture(scope="function")
 def dummy_snippet_filepath():
-    mark_filepath = Path(tempfile.NamedTemporaryFile(suffix=".json", delete=False).name)
-    yield mark_filepath
+    snippet_dirpath = Path(tempfile.TemporaryDirectory(delete=False).name)
+    snippet_filepath = snippet_dirpath.joinpath("snippet.json")
+    yield snippet_filepath
 
 
 @pytest.fixture(scope="function")

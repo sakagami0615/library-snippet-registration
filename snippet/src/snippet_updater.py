@@ -2,7 +2,6 @@ import os
 import shutil
 from collections import defaultdict
 from datetime import datetime
-from enum import StrEnum
 from logging import getLogger
 from pathlib import Path
 from typing import Union
@@ -21,13 +20,26 @@ REPO_PATH = Path(os.path.abspath(__file__)).parent.parent.parent
 CONFIG_TEMPLATE_PATH = REPO_PATH.joinpath(Path("snippet/config_template"))
 
 
-class Mode(StrEnum):
-    """ツールの実行モードのEnumクラス"""
+class Mode:
+    """ツールの実行モードクラス"""
 
     DELETE = "delete"
     RESIST = "resist"
     PREPARE = "prepare"
     UNKNOWN = "unknown"
+
+    @staticmethod
+    def is_exist(mode_name: str) -> bool:
+        """存在するモード名かを判定
+
+        Args:
+            mode_name (str): 確認するモード名
+
+        Returns:
+            bool: 存在する(True) or 存在しない(False)
+        """
+        modes = [Mode.DELETE, Mode.RESIST, Mode.PREPARE]
+        return mode_name in modes
 
 
 class SnippetUpdater:

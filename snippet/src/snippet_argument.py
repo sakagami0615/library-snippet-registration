@@ -102,7 +102,7 @@ class SnippetArgument:
         Returns:
             Argument: 取得したコマンドライン引数
         """
-        mode = Mode.UNKNOWN if self._cmd_args.mode not in Mode else Mode(self._cmd_args.mode)
+        mode = self._cmd_args.mode if Mode.is_exist(self._cmd_args.mode) else Mode.UNKNOWN
 
         def set_param_in_config() -> Argument:
             config = FileHelper.read_yaml(Path(self._cmd_args.config_path))

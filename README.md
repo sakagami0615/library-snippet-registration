@@ -2,7 +2,7 @@
 
 ## requirements
 
-- python 3.11.X
+- python 3.10.X
 
 ## installation
 
@@ -63,7 +63,7 @@ poetry run python snippet_tool.py [prepare|resist|delete]
 poetry run tox
 
 # NOTE: 単体で実施する場合は下記の通り
-poetry run tox -e py312
+poetry run tox -e py310
 poetry run tox -e ruff
 poetry run tox -e mypy
 ```

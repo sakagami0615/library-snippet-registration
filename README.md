@@ -1,69 +1,51 @@
 # library-snippet-registration
 
-## requirements
+## 対応しているPythonバージョン
 
 - python 3.10.X
 
-## installation
+## インストール方法
 
 ```bash
 pip install git+https://github.com/sakagami0615/library-snippet-registration
 ```
 
-## prepare run script
+## 使用方法
 
-### snippet_tool.py
+### 事前準備
 
-```python
-from snippet.snippet import main
-
-if __name__ == "__main__":
-    main()
-```
-
-## how to use
-
-### generate config
-
-以下のように実行することで2つのパラメータファイルが生成される。自身の環境に合わせて中身を記載する。
-
-- snippet_config_template.yaml
-- library_mark_template.yaml
+ツールを使用する事前準備として、下記のコマンドを実行してライブラリに関する情報などを記載するためのsetting.ymlを生成します。  
+コマンド実行後 `.library_snippet_registration/setting.yml` が生成されます。
 
 ```bash
-python snippet_tool.py prepare
+python -m snippet setting  
 ```
 
-### run resist snippet
+> [注意]  
+> すでに `.library_snippet_registration/setting.yml` が存在する場合、コマンドは失敗します。  
+> 再生成したい場合は、元あるファイルを削除するかリネームしてください。
 
-```bash
-python snippet_tool.py resist -c ./snippet_config_template.yaml
+生成された `.library_snippet_registration/setting.yml` の設定値を記載します。
+
+```yml
+# TODO: 設定値の説明を記載する
 ```
 
-## for developers
+### ツール実行
 
-### create environment
+`.library_snippet_registration/setting.yml` の記載が完了している状態で、下記コマンドを実行します。
 
 ```bash
-# TODO: python3.10でない場合は、あらかしめ切り替える
-pyenv global 3.10.x
-
-poetry install
+python -m snippet register  
 ```
 
-### run script
+複数のデバイスを記載している場合、対象のデバイスを選択します。
 
 ```bash
-poetry run python snippet_tool.py [prepare|resist|delete]
-```
+> python -m snippet register
 
-### run test
-
-```bash
-poetry run tox
-
-# NOTE: 単体で実施する場合は下記の通り
-poetry run tox -e py310
-poetry run tox -e ruff
-poetry run tox -e mypy
+choose device
+1. {your setting device}
+2. {your setting device}
+>>> 
 ```

@@ -1,0 +1,1 @@
+E:/Dropbox/develop/contest/tools/library-snippet-registration/CLAUDE.md

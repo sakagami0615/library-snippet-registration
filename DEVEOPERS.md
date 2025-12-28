@@ -3,7 +3,7 @@
 ## create environment
 
 ```bash
-# TODO: python3.10でない場合は、あらかしめ切り替える
+# python3.10でない場合は、切り替える
 pyenv global 3.10.x
 
 poetry install

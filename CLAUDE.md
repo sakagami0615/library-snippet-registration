@@ -8,7 +8,7 @@ This document defines the project's rules, objectives, and progress management m
 
 ## Programming Rules
 
-- Use Python as your programming language.
+- Use Python with Poetry as your programming language.
 - Avoid hard-coding values unless absolutely necessary.
 - When you write docstrings in Python, use Google Style.
 - **You must use type annotations** in Python.

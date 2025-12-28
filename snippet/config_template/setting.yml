@@ -1,0 +1,28 @@
+devices:
+  {デバイスが判別できる任意の名前を設定}:
+    snippet_path:
+      vscode: none
+      cursor: none
+
+tool_config:
+  backup_snippet_dirpath: .backup_snippet
+
+libraries:
+  {ライブラリ名を指定}:
+    enable: false
+    description: ""
+    relative_path: {本ファイルから見たライブラリフォルダの相対パスを指定}
+    # 言語設定(例: python)
+    language:
+      name: python                
+      extensions: [".py"]
+      excludes: ["__pycache__"]
+    # ライブラリ開始/終了位置
+    library_code_block:
+      begin: "lib:begin"      
+      end: "lib:end"
+    # スニペットjsonに記載する情報の位置
+    library_description_prefix:
+      snippet_key: "[snippet_key]"        # スニペットのキーを記載する位置
+      snippet_prefix: "[snippet_prefix]"  # スニペットのプレフィックスを記載する位置
+      description: "[description]"        # スニペットの説明を記載する位置

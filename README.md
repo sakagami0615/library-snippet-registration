@@ -1,69 +1,148 @@
 # library-snippet-registration
 
-## requirements
+## 対応しているPythonバージョン
 
 - python 3.10.X
+- python 3.11.X
+- python 3.12.X
 
-## installation
+## インストール方法
 
 ```bash
 pip install git+https://github.com/sakagami0615/library-snippet-registration
 ```
 
-## prepare run script
+## 使用方法
 
-### snippet_tool.py
+### 事前準備
+
+ツールを使用する事前準備として、下記のコマンドを実行してライブラリに関する情報などを記載するためのsetting.ymlを生成します。  
+コマンド実行後 `.library_snippet_registration/setting.yml` が生成されます。
+
+```bash
+python -m snippet setting
+```
+
+> [注意]  
+> すでに `.library_snippet_registration/setting.yml` が存在する場合、コマンドは失敗します。  
+> 再生成したい場合は、元あるファイルを削除するかリネームしてください。
+
+生成された `.library_snippet_registration/setting.yml` の設定値を記載します。
+
+```yml
+devices:
+  {デバイス名}:  # 使用しているデバイスを識別する名前（例: "my-laptop", "desktop"など）
+    snippet_path:
+      vscode: {VSCodeのスニペットディレクトリパス}  # 例: C:\Users\username\AppData\Roaming\Code\User\snippets
+      cursor: {Cursorのスニペットディレクトリパス}  # 例: C:\Users\username\AppData\Roaming\Cursor\User\snippets
+
+tool_config:
+  backup_snippet_dirpath: .backup_snippet  # スニペットファイルのバックアップ先ディレクトリ
+
+libraries:
+  {ライブラリ名}:  # 登録するライブラリの名前（例: "my-utils", "algorithms"など）
+    enable: true  # ライブラリのスニペット登録を有効にするか
+                  # > true: スニペットjsonに記載する
+                  # > false: スニペットjsonから削除する
+    description: "ライブラリの説明"  # ライブラリの説明文
+    relative_path: {ライブラリパス}  # setting.ymlから見たライブラリフォルダの相対パス（例: "../my-library"）
+
+    # 言語設定
+    language:
+      name: python  # プログラミング言語名(スニペットjsonの名前と一致する必要があります)
+      extensions: [".py"]  # 対象とするファイル拡張子のリスト
+      excludes: ["__pycache__", "test"]  # 除外するディレクトリやファイル名のパターン
+
+    # ライブラリコードブロックの開始/終了マーカー
+    library_code_block:
+      begin: "lib:begin"  # ライブラリコードブロックの開始マーカー
+      end: "lib:end"  # ライブラリコードブロックの終了マーカー
+
+    # スニペット情報を記載するためのプレフィックス
+    library_description_prefix:
+      snippet_key: "[snippet_key]"  # スニペットキーを指定する接頭辞
+      snippet_prefix: "[snippet_prefix]"  # スニペットプレフィックスを指定する接頭辞
+      description: "[description]"  # スニペット説明を指定する接頭辞
+```
+
+**設定例:**
+
+```yml
+devices:
+  my-laptop:
+    snippet_path:
+      vscode: C:\Users\username\AppData\Roaming\Code\User\snippets
+      cursor: none
+
+tool_config:
+  backup_snippet_dirpath: .backup_snippet
+
+libraries:
+  my-algorithms:
+    enable: true
+    description: "競技プログラミング用アルゴリズムライブラリ"
+    relative_path: ../algorithms
+    language:
+      name: python
+      extensions: [".py"]
+      excludes: ["__pycache__", "test", ".pytest_cache"]
+    library_code_block:
+      begin: "lib:begin"
+      end: "lib:end"
+    library_description_prefix:
+      snippet_key: "[snippet_key]"
+      snippet_prefix: "[snippet_prefix]"
+      description: "[description]"
+```
+
+**ライブラリコードの記述例:**
+
+ライブラリコードには、スニペット情報とコードブロックを以下のように記述します。
 
 ```python
-from snippet.snippet import main
-
-if __name__ == "__main__":
-    main()
+# [snippet_key] binary_search
+# [snippet_prefix] bsearch
+# [description] Binary search implementation
+# lib:begin
+def binary_search(arr, target):
+    left, right = 0, len(arr) - 1
+    while left <= right:
+        mid = (left + right) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+    return -1
+# lib:end
 ```
 
-## how to use
+### ツール実行
 
-### generate config
-
-以下のように実行することで2つのパラメータファイルが生成される。自身の環境に合わせて中身を記載する。
-
-- snippet_config_template.yaml
-- library_mark_template.yaml
+`.library_snippet_registration/setting.yml` の記載が完了している状態で、下記コマンドを実行します。
 
 ```bash
-python snippet_tool.py prepare
+python -m snippet register
 ```
 
-### run resist snippet
+複数のデバイスを記載している場合、対象のデバイスを選択します。
 
 ```bash
-python snippet_tool.py resist -c ./snippet_config_template.yaml
+> python -m snippet register
+
+choose device
+1. {your setting device}
+2. {your setting device}
+>>> 
 ```
 
-## for developers
+デバイス選択後、以下のようなログが表示され、スニペットjsonにライブラリコードが登録されます。。
 
-### create environment
-
-```bash
-# TODO: python3.10でない場合は、あらかしめ切り替える
-pyenv global 3.10.x
-
-poetry install
 ```
-
-### run script
-
-```bash
-poetry run python snippet_tool.py [prepare|resist|delete]
-```
-
-### run test
-
-```bash
-poetry run tox
-
-# NOTE: 単体で実施する場合は下記の通り
-poetry run tox -e py310
-poetry run tox -e ruff
-poetry run tox -e mypy
+[2025-12-29 03:59:43,951][snippet][INFO] chhose device: {デバイス名}
+[2025-12-29 03:59:43,952][snippet.lib_loader][DEBUG] Loading library: {ライブラリ名}
+[2025-12-29 03:59:43,953][snippet.lib_loader][DEBUG] Loaded X code blocks from {ライブラリ名}
+[2025-12-29 03:59:43,958][snippet.update_snippet][INFO] [vscode] Snippet file updated: {スニペットjsonパス} 
+[2025-12-29 03:59:43,958][snippet.update_snippet][INFO] [cursor] Snippet file updated: {スニペットjsonパス}
 ```

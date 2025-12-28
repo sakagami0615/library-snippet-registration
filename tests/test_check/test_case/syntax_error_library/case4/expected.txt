@@ -1,1 +1,0 @@
-libcode.py L1 に対応するブロック終了のマークがありません (library syntax)

@@ -1,1 +1,0 @@
-libcode.py L9 のライブラリコードのsnippet_prefix(test)が重複しているため、スニペットの登録からは除外します (library syntax)

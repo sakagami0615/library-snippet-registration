@@ -36,7 +36,7 @@ python -m snippet setting
 `.library_snippet_registration/setting.yml` の記載が完了している状態で、下記コマンドを実行します。
 
 ```bash
-python -m snippet register  
+python -m snippet register
 ```
 
 複数のデバイスを記載している場合、対象のデバイスを選択します。

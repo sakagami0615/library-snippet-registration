@@ -1,46 +1,28 @@
 devices:
-  MacBook-Air:
-    snippet_path:
-      vscode: none
-      cursor: "/Users/sakagami0615/Library/Application\ Support/Cursor/User/snippets"
-  Desktop-Windows11:
-    snippet_path:
-      vscode: none
-      cursor: none"
-
   {デバイスが判別できる任意の名前を設定}:
     snippet_path:
       vscode: none
       cursor: none
 
+tool_config:
+  backup_snippet_dirpath: .backup_snippet
+
 libraries:
-  my_library_python:
-    description: "競プロ用に用意したpythonライブラリ"
-    enable: true
-    relative_path: ./lib
-    lang: python
-    tool_config:
+  {ライブラリ名を指定}:
+    enable: false
+    description: ""
+    relative_path: {本ファイルから見たライブラリフォルダの相対パスを指定}
+    # 言語設定(例: python)
+    language:
+      name: python                
       extensions: [".py"]
       excludes: ["__pycache__"]
-      target_mark:
-        lib_begin: "lib:begin"
-        lib_end: "lib:end"
-      desc_mark:
-        snippet_key: "[snippet_key]"
-        snippet_prefix: "[snippet_prefix]"
-        description: "[description]"
-  {ライブラリ名を指定}:
-    description: ""
-    enable: false
-    relative_path: {本ファイルから見たライブラリフォルダの相対パスを指定}
-    lang: python      # 言語名(このファイルを元にsnippetのjsonファイルを作成する)
-    tool_config:
-      extensions: [".py"]
-      excludes: []
-      target_mark:
-        lib_begin: "lib:begin"      # ライブラリ開始位置
-        lib_end: "lib:end"          # ライブラリ終了位置
-      desc_mark:
-        snippet_key: "[snippet_key]"        # スニペットjsonに記載するキーを記載する位置
-        snippet_prefix: "[snippet_prefix]"  # スニペットjsonに記載するプレフィックスを記載する位置
-        description: "[description]"        # スニペットjsonに記載する説明を記載する位置
+    # ライブラリ開始/終了位置
+    library_code_block:
+      begin: "lib:begin"      
+      end: "lib:end"
+    # スニペットjsonに記載する情報の位置
+    library_description_prefix:
+      snippet_key: "[snippet_key]"        # スニペットのキーを記載する位置
+      snippet_prefix: "[snippet_prefix]"  # スニペットのプレフィックスを記載する位置
+      description: "[description]"        # スニペットの説明を記載する位置

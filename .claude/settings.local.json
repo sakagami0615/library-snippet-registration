@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ruff check:*)",
+      "Bash(python -m pytest:*)",
+      "Bash(where:*)",
+      "Bash(pyenv versions:*)",
+      "Bash(pyenv local:*)",
+      "Bash(cat:*)",
+      "Bash(pyenv which:*)"
+    ]
+  }
+}

@@ -18,7 +18,7 @@ poetry install
 poetry run python -m snippet register
 
 # ツール設定ファイル生成
-poetry run python snippet_tool.py prepare
+poetry run python snippet_tool.py setting
 
 # スニペット登録
 poetry run python snippet_tool.py register

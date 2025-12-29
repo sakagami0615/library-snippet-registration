@@ -83,6 +83,7 @@ omit = [
     "snippet/__main__.py",
     "snippet/version.py",
 ]
+relative_files = true
 
 [tool.coverage.report]
 exclude_lines = [

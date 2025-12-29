@@ -38,13 +38,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: .venv
-          key: venv-${{ runner.os }}-${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}
+          key: venv-${{ runner.os }}-${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}-v2
 
       - name: Install dependencies
-        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
-        run: poetry install --no-interaction --no-root --with dev
-
-      - name: Install project
         run: poetry install --no-interaction --with dev
 
       - name: Run tests
@@ -73,13 +69,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: .venv
-          key: venv-${{ runner.os }}-3.10-${{ hashFiles('**/poetry.lock') }}
+          key: venv-${{ runner.os }}-3.10-${{ hashFiles('**/poetry.lock') }}-v2
 
       - name: Install dependencies
-        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
-        run: poetry install --no-interaction --no-root --with dev
-
-      - name: Install project
         run: poetry install --no-interaction --with dev
 
       - name: Run Ruff format check
@@ -114,13 +106,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: .venv
-          key: venv-${{ runner.os }}-3.10-${{ hashFiles('**/poetry.lock') }}
+          key: venv-${{ runner.os }}-3.10-${{ hashFiles('**/poetry.lock') }}-v2
 
       - name: Install dependencies
-        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
-        run: poetry install --no-interaction --no-root --with dev
-
-      - name: Install project
         run: poetry install --no-interaction --with dev
 
       - name: Run tests with coverage

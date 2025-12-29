@@ -12,7 +12,8 @@
       "Bash(git ls-files:*)",
       "Bash(while read f)",
       "Bash(poetry show:*)",
-      "Bash(poetry add:*)"
+      "Bash(poetry add:*)",
+      "Bash(ls:*)"
     ]
   }
 }

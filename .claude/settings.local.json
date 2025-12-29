@@ -1,19 +1,20 @@
 {
   "permissions": {
     "allow": [
-      "Bash(ruff check:*)",
-      "Bash(python -m pytest:*)",
-      "Bash(where:*)",
-      "Bash(pyenv versions:*)",
-      "Bash(pyenv local:*)",
       "Bash(cat:*)",
-      "Bash(pyenv which:*)",
-      "Bash(poetry run python:*)",
       "Bash(git ls-files:*)",
-      "Bash(while read f)",
-      "Bash(poetry show:*)",
+      "Bash(ls:*)",
       "Bash(poetry add:*)",
-      "Bash(ls:*)"
+      "Bash(poetry run pytest:*)",
+      "Bash(poetry run python:*)",
+      "Bash(poetry show:*)",
+      "Bash(pyenv local:*)",
+      "Bash(pyenv versions:*)",
+      "Bash(pyenv which:*)",
+      "Bash(python -m pytest:*)",
+      "Bash(ruff check:*)",
+      "Bash(where:*)",
+      "Bash(while read f)"
     ]
   }
 }

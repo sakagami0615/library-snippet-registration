@@ -33,6 +33,8 @@ poetry run tox
 poetry run tox -e py310
 poetry run tox -e py311
 poetry run tox -e py312
+
+# NOTE: 性的解析のみ実施する場合は下記の通り
 poetry run tox -e ruff
 poetry run tox -e mypy
 ```

@@ -10,7 +10,9 @@
       "Bash(pyenv which:*)",
       "Bash(poetry run python:*)",
       "Bash(git ls-files:*)",
-      "Bash(while read f)"
+      "Bash(while read f)",
+      "Bash(poetry show:*)",
+      "Bash(poetry add:*)"
     ]
   }
 }

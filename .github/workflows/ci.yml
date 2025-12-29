@@ -42,10 +42,10 @@ jobs:
 
       - name: Install dependencies
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
-        run: poetry install --no-interaction --no-root
+        run: poetry install --no-interaction --no-root --with dev
 
       - name: Install project
-        run: poetry install --no-interaction
+        run: poetry install --no-interaction --with dev
 
       - name: Run tests
         run: poetry run pytest -v
@@ -77,10 +77,10 @@ jobs:
 
       - name: Install dependencies
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
-        run: poetry install --no-interaction --no-root
+        run: poetry install --no-interaction --no-root --with dev
 
       - name: Install project
-        run: poetry install --no-interaction
+        run: poetry install --no-interaction --with dev
 
       - name: Run Ruff format check
         run: poetry run ruff format --check ./snippet
@@ -118,10 +118,10 @@ jobs:
 
       - name: Install dependencies
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
-        run: poetry install --no-interaction --no-root
+        run: poetry install --no-interaction --no-root --with dev
 
       - name: Install project
-        run: poetry install --no-interaction
+        run: poetry install --no-interaction --with dev
 
       - name: Run tests with coverage
         run: poetry run pytest --cov=snippet --cov-report=term-missing --cov-report=xml --cov-report=html

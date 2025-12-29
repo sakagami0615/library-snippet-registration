@@ -78,7 +78,7 @@ jobs:
       - name: Run tests with coverage
         run: |
           set -o pipefail
-          poetry run pytest --junitxml=pytest.xml --cov-report=term-missing:skip-covered | tee pytest-coverage.txt
+          poetry run pytest --junitxml=pytest.xml --cov-report=term-missing:skip-covered --cov=snippet tests/ | tee pytest-coverage.txt
 
       - name: Coverage comment
         uses: MishaKav/pytest-coverage-comment@main

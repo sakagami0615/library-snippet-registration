@@ -11,15 +11,15 @@ libraries:
   {ライブラリ名を指定}:
     enable: false
     description: ""
-    relative_path: {本ファイルから見たライブラリフォルダの相対パスを指定}
+    relative_path: {本ツール実行パスを起点としたライブラリフォルダの相対パス}
     # 言語設定(例: python)
     language:
-      name: python                
+      name: python
       extensions: [".py"]
       excludes: ["__pycache__"]
     # ライブラリ開始/終了位置
     library_code_block:
-      begin: "lib:begin"      
+      begin: "lib:begin"
       end: "lib:end"
     # スニペットjsonに記載する情報の位置
     library_description_prefix:

@@ -163,5 +163,6 @@ cython_debug/
 .git
 .vscode
 .library-snippet-registration
+tests/sample_data/output
 @old
 @tmp

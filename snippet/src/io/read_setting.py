@@ -1,7 +1,10 @@
 from logging import getLogger
+from typing import Any
 from typing import Optional
+from typing import cast
 
 from snippet.setting import SETTING_PATH
+from snippet.src.common.file_helper import expand_yaml_templates
 from snippet.src.common.file_helper import read_yaml
 from snippet.src.common.string_helper import is_real_number
 
@@ -12,18 +15,25 @@ logger = getLogger("snippet").getChild("read_setting")
 
 
 def read_setting_yaml() -> Optional[dict]:
-    """設定YAMLファイルを読み込む
+    """設定YAMLファイルを読み込み、Jinja2テンプレートを展開する
 
-    SETTING_PATHで指定された設定ファイルを読み込み、設定データを返す。
+    SETTING_PATHで指定された設定ファイルを読み込み、全ての文字列値に対して
+    Jinja2テンプレート展開を適用した設定データを返す。
     エラーが発生した場合はNoneを返す。
 
     Returns:
-        Optional[dict]: 読み込んだ設定データ。エラーが発生した場合はNone
+        Optional[dict]: テンプレートが展開された設定データ。エラーが発生した場合はNone
+
+    Note:
+        - 設定ファイル内の全ての文字列に対してJinja2テンプレートレンダリングが適用されます
+        - 使用可能な変数: repo_root, env.VARIABLE_NAME
     """
     logger.info(f"setting path: {SETTING_PATH}")
     try:
         setting_data = read_yaml(SETTING_PATH)
-        return setting_data
+        # YAML全体に対してJinja2テンプレート展開を適用
+        expanded_data = expand_yaml_templates(setting_data)
+        return cast(dict[Any, Any], expanded_data)
     except Exception:
         return None
 

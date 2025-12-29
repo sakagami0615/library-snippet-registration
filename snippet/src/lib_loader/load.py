@@ -126,8 +126,11 @@ def load_library_code(lib_name: str, lib_setting: dict) -> list[LibraryCode]:
     Note:
         - 設定辞書からLibrarySettingDataオブジェクトを生成して処理します
         - 各ファイルに対してextract_library_code()を呼び出します
+        - relative_pathのJinja2テンプレートは、read_setting_yaml()で既に展開されています
     """
     setting_data = LibrarySettingData.from_setting(lib_name, lib_setting)
+
+    # relative_pathは既にread_setting_yaml()でテンプレート展開済み
     lib_code_path_list = get_library_code_path(setting_data.relative_path, setting_data.language)
 
     lib_code_list: list[LibraryCode] = []

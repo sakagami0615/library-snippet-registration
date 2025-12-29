@@ -1,0 +1,20 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Python files should use LF
+*.py text eol=lf
+
+# YAML files should use LF
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# Markdown files should use LF
+*.md text eol=lf
+
+# Configuration files should use LF
+*.toml text eol=lf
+*.json text eol=lf
+*.jsonc text eol=lf
+
+# Shell scripts should use LF
+*.sh text eol=lf

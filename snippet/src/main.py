@@ -35,7 +35,7 @@ def resist_snippet() -> None:
         logger.error("デバイスの選択に失敗しました。設定ファイルのdevices項目を確認してください。")
         return
 
-    logger.info(f"chhose device: {device_name}")
+    logger.info(f"choose device: {device_name}")
 
     tool_setting = setting_data["tool_config"]
     device_setting = setting_data["devices"][device_name]

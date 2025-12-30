@@ -2,14 +2,13 @@
 
 from dataclasses import dataclass
 
-import pytest
-
 from snippet.src.common.groupby import groupby
 
 
 @dataclass
 class SampleItem:
     """テスト用データクラス."""
+
     name: str
     category: str
     value: int

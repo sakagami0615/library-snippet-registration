@@ -1,7 +1,5 @@
 """checkモジュールのユニットテスト."""
 
-import pytest
-
 from snippet.src.lib_loader.check import check_library_code_block
 from snippet.src.lib_loader.check import check_library_code_prefix
 

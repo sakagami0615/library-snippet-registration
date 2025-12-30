@@ -1,5 +1,5 @@
 devices:
-  {デバイスが判別できる任意の名前を設定}:
+  \{デバイスが判別できる任意の名前を設定\}:
     snippet_path:
       vscode: none
       cursor: none
@@ -8,7 +8,7 @@ tool_config:
   backup_snippet_dirpath: .backup_snippet
 
 libraries:
-  {ライブラリ名を指定}:
+  \{ライブラリ名を指定\}:
     enable: false
     description: ""
     relative_path: {本ツール実行パスを起点としたライブラリフォルダの相対パス}

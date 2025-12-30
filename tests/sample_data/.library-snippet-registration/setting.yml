@@ -1,0 +1,45 @@
+devices:
+  Test:
+    snippet_path:
+      vscode: none
+      cursor: none
+      # 本リポジトリのパスを起点としたフォルダパスを指定
+      sample: "{{ repo_root }}/tests/sample_data/output"
+
+tool_config:
+  backup_snippet_dirpath: .backup_snippet
+
+libraries:
+  sample_test_library_1:
+    enable: true
+    description: "library-snippet-registrationの動作確認用ダミーライブラリ1"
+    # tests/sample_data を起点とした相対パスを指定
+    relative_path: "./sample_lib/lib1"
+    language:
+      name: python
+      extensions: [".py"]
+      excludes: ["__pycache__"]
+    library_code_block:
+      begin: "lib:begin"
+      end: "lib:end"
+    library_description_prefix:
+      snippet_key: "[snippet_key]"
+      snippet_prefix: "[snippet_prefix]"
+      description: "[description]"
+
+  sample_test_library_2:
+    enable: true
+    description: "library-snippet-registrationの動作確認用ダミーライブラリ2"
+    # tests/sample_data を起点とした相対パスを指定
+    relative_path: "./sample_lib/lib2"
+    language:
+      name: python
+      extensions: [".py"]
+      excludes: ["__pycache__"]
+    library_code_block:
+      begin: "lib:begin"
+      end: "lib:end"
+    library_description_prefix:
+      snippet_key: "[snippet_key]"
+      snippet_prefix: "[snippet_prefix]"
+      description: "[description]"

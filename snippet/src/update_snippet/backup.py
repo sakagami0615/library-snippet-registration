@@ -26,5 +26,8 @@ def backup_snippet_files(tool_setting: dict, device_setting: dict) -> None:
     backup_dirpath.mkdir(parents=True, exist_ok=True)
 
     for snippet_name, snippet_path in device_setting["snippet_path"].items():
+        # "none"または空の場合はスキップ(使用していないエディタの設定)
+        if snippet_path in ("none", "", None):
+            continue
         backup_snippet_path = backup_dirpath / Path(snippet_name)
         shutil.copytree(snippet_path, backup_snippet_path)

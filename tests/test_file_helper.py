@@ -4,7 +4,6 @@ import json
 import tempfile
 from pathlib import Path
 
-import pytest
 import yaml
 
 from snippet.src.common.file_helper import read_json

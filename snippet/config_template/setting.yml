@@ -1,6 +1,8 @@
 devices:
-  {デバイスが判別できる任意の名前を設定}:
+  \{デバイスが判別できる任意の名前を設定\}:
     snippet_path:
+      # エディタのスニペットパスを設定してください。(使用しない場合は"none", or 行削除する)
+      # vscodeライクのIDEのスニペットパスを指定できます。(`editor-name: snippet-path`の形で追加可能)
       vscode: none
       cursor: none
 
@@ -8,7 +10,7 @@ tool_config:
   backup_snippet_dirpath: .backup_snippet
 
 libraries:
-  {ライブラリ名を指定}:
+  \{ライブラリ名を指定\}:
     enable: false
     description: ""
     relative_path: {本ツール実行パスを起点としたライブラリフォルダの相対パス}

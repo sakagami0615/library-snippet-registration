@@ -2,8 +2,6 @@
 
 from pathlib import Path
 
-import pytest
-
 from snippet.src.common.file_helper import expand_yaml_templates
 from snippet.src.common.file_helper import find_repo_root
 

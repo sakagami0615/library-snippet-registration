@@ -1,7 +1,5 @@
 """dataclassモジュールのユニットテスト."""
 
-import pytest
-
 from snippet.src.lib_loader.dataclass import LanguageData
 from snippet.src.lib_loader.dataclass import LibraryCode
 from snippet.src.lib_loader.dataclass import LibraryRuleData

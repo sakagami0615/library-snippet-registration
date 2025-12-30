@@ -118,6 +118,9 @@ def update_snippet(device_setting: dict, lib_codes: list[LibraryCode]) -> None:
     for lang, lang_codes in lang_groupby_codes.items():
         # 各エディタごとにスニペットファイルを更新
         for editor_name, snippet_dirpath in device_setting["snippet_path"].items():
+            # "none"または空の場合はスキップ(使用していないエディタの設定)
+            if snippet_dirpath in ("none", "", None):
+                continue
             snippet_path = Path(snippet_dirpath) / Path(f"{lang}.json")
             jsonc_data = read_jsonc(snippet_path)
             snippet_data = update_language_snippet(defaultdict(dict, jsonc_data), lang_codes)
